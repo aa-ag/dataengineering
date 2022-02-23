@@ -1,6 +1,4 @@
-### Adding all exercises to comply
-# with T&C's
-*.ipynb
+*.json
 
 
 # Settings or config
