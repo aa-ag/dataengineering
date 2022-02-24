@@ -8,3 +8,4 @@ Completing the Data Engineering Nanodegree on [Udacity](https://www.udacity.com/
 - `conda activate dataengineering`
 - `conda install -c anaconda jupyter`
 - `conda install -c anaconda psycopg2`
+- `conda install -c anaconda psycopg2`
