@@ -1,4 +1,5 @@
 ############------------ IMPORTS ------------############
+from multiprocessing import connection
 import os
 import glob
 import psycopg2
@@ -65,7 +66,7 @@ def process_log_file(cursor, filepath):
         cursor.execute(songplay_table_insert, songplay_data)
 
 
-def process_data(cursor, conn, filepath, func):
+def process_data(cursor, connection, filepath, func):
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
@@ -79,19 +80,19 @@ def process_data(cursor, conn, filepath, func):
 
     # iterate over files and process
     for i, datafile in enumerate(all_files, 1):
-        func(cur, datafile)
-        conn.commit()
+        func(cursor, datafile)
+        connection.commit()
         print('{}/{} files processed.'.format(i, num_files))
 
 
 def main():
-    conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=student password=student")
-    cursor = conn.cursor()
+    connection = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=student password=student")
+    cursor = connection.cursor()
 
-    process_data(cursor, conn, filepath='data/song_data', func=process_song_file)
-    process_data(cursor, conn, filepath='data/log_data', func=process_log_file)
+    process_data(cursor, connection, filepath='data/song_data', func=process_song_file)
+    process_data(cursor, connection, filepath='data/log_data', func=process_log_file)
 
-    conn.close()
+    connection.close()
 
 
 ############------------ DRIVER CODE ------------############
