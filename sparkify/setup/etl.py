@@ -1,3 +1,4 @@
+############------------ IMPORTS ------------############
 import os
 import glob
 import psycopg2
@@ -5,6 +6,10 @@ import pandas as pd
 from sql_queries import *
 
 
+############------------ GLOBAL VARIABLE(S) ------------############
+
+
+############------------ FUNCTION(S) ------------############
 def process_song_file(cur, filepath):
     # open song file
     df = 
@@ -89,5 +94,6 @@ def main():
     conn.close()
 
 
+############------------ DRIVER CODE ------------############
 if __name__ == "__main__":
     main()
