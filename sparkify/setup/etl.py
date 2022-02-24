@@ -10,20 +10,20 @@ from sql_queries import *
 
 
 ############------------ FUNCTION(S) ------------############
-def process_song_file(cur, filepath):
+def process_song_file(cursor, filepath):
     # open song file
     df = ''
 
     # insert song record
     song_data = ''
-    cur.execute(song_table_insert, song_data)
+    cursor.execute(song_table_insert, song_data)
     
     # insert artist record
     artist_data = ''
-    cur.execute(artist_table_insert, artist_data)
+    cursor.execute(artist_table_insert, artist_data)
 
 
-def process_log_file(cur, filepath):
+def process_log_file(cursor, filepath):
     # open log file
     df = ''
 
@@ -39,21 +39,21 @@ def process_log_file(cur, filepath):
     time_df = ''
 
     for i, row in time_df.iterrows():
-        cur.execute(time_table_insert, list(row))
+        cursor.execute(time_table_insert, list(row))
 
     # load user table
     user_df = ''
 
     # insert user records
     for i, row in user_df.iterrows():
-        cur.execute(user_table_insert, row)
+        cursor.execute(user_table_insert, row)
 
     # insert songplay records
     for index, row in df.iterrows():
         
         # get songid and artistid from song and artist tables
-        cur.execute(song_select, (row.song, row.artist, row.length))
-        results = cur.fetchone()
+        cursor.execute(song_select, (row.song, row.artist, row.length))
+        results = cursor.fetchone()
         
         if results:
             songid, artistid = results
@@ -62,10 +62,10 @@ def process_log_file(cur, filepath):
 
         # insert songplay record
         songplay_data = ''
-        cur.execute(songplay_table_insert, songplay_data)
+        cursor.execute(songplay_table_insert, songplay_data)
 
 
-def process_data(cur, conn, filepath, func):
+def process_data(cursor, conn, filepath, func):
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
@@ -86,10 +86,10 @@ def process_data(cur, conn, filepath, func):
 
 def main():
     conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=student password=student")
-    cur = conn.cursor()
+    cursor = conn.cursor()
 
-    process_data(cur, conn, filepath='data/song_data', func=process_song_file)
-    process_data(cur, conn, filepath='data/log_data', func=process_log_file)
+    process_data(cursor, conn, filepath='data/song_data', func=process_song_file)
+    process_data(cursor, conn, filepath='data/log_data', func=process_log_file)
 
     conn.close()
 
