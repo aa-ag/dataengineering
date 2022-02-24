@@ -11,6 +11,12 @@ from sql_queries import *
 
 ############------------ FUNCTION(S) ------------############
 def process_song_file(cursor, filepath):
+    '''
+     access song & song's artist data
+     from a file via its path, prepare
+     such data to be inserted into the db
+     and then insert it
+    '''
     # open song file
     df = ''
 
