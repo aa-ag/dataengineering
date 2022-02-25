@@ -15,3 +15,5 @@ here's a step-by-step of what I did:
     - comply with PEP8,
     - more explicit variable names,
     - more descriptive docstrings and comments
+
+- started designing/writing sql queries to create tables
