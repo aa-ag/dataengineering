@@ -1,5 +1,7 @@
-# DROP TABLES
-songplay_table_drop = ""
+### DROP TABLES #####################################################
+songplay_table_drop = """
+DROP TABLE IF EXISTS songplays;
+"""
 
 user_table_drop = ""
 
@@ -10,7 +12,7 @@ artist_table_drop = ""
 time_table_drop = ""
 
 
-# CREATE TABLES
+### CREATE TABLES #####################################################
 songplay_table_create = ("""
 """)
 
@@ -26,8 +28,7 @@ artist_table_create = ("""
 time_table_create = ("""
 """)
 
-# INSERT RECORDS
-
+### INSERT RECORDS #####################################################
 songplay_table_insert = ("""
 """)
 
@@ -45,14 +46,12 @@ time_table_insert = ("""
 """)
 
 
-# FIND SONGS
-
+### FIND SONGS ###################################################
 song_select = ("""
 """)
 
 
-# QUERY LISTS
-
+### QUERY LISTS ###################################################
 create_table_queries = [
     songplay_table_create, user_table_create, song_table_create, 
     artist_table_create, time_table_create
