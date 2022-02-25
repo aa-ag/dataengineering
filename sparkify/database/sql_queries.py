@@ -11,7 +11,9 @@ song_table_drop = """
 DROP TABLE IF EXISTS songs;
 """
 
-artist_table_drop = ""
+artist_table_drop = """
+DROP TABLE IF EXISTS artists;
+"""
 
 time_table_drop = ""
 
