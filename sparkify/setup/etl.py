@@ -104,7 +104,7 @@ def process_data(cursor, connection, filepath, func):
 
     # get total number of files found
     num_files = len(all_files)
-    print('{} files found in {}'.format(num_files, filepath))
+    print(f'{num_files} files found in {filepath}')
 
     # iterate over files and process
     for i, datafile in enumerate(all_files, 1):
