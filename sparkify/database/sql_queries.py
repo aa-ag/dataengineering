@@ -7,7 +7,9 @@ user_table_drop = """
 DROP TABLE IF EXISTS users;
 """
 
-song_table_drop = ""
+song_table_drop = """
+DROP TABLE IF EXISTS songs;
+"""
 
 artist_table_drop = ""
 
