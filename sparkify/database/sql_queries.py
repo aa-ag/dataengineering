@@ -15,7 +15,9 @@ artist_table_drop = """
 DROP TABLE IF EXISTS artists;
 """
 
-time_table_drop = ""
+time_table_drop = """
+DROP TABLE IF EXISTS time;
+"""
 
 
 ### CREATE TABLES #####################################################
