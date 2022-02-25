@@ -36,6 +36,11 @@ def process_song_file(cursor, filepath):
 
 
 def process_log_file(cursor, filepath):
+    '''
+     open log file, process NextSong, 
+     timestamp, user info and songplay
+     and post to the db
+    '''
     # open log file
     df = ''
 
