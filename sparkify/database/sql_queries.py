@@ -34,6 +34,8 @@ CREATE TABLE IF NOT EXISTS users
 """)
 
 song_table_create = ("""
+CREATE TABLE IF NOT EXISTS songs
+(song_id PRIMARY KEY, title text, artist_id bigint, year timestamp, duration numeric)
 """)
 
 artist_table_create = ("""
