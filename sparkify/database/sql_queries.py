@@ -39,6 +39,8 @@ CREATE TABLE IF NOT EXISTS songs
 """)
 
 artist_table_create = ("""
+CREATE TABLE IF NOT EXISTS artists
+(artist_id bigint PRIMARY KEY, name text, location text, latitude numeric, longitude numeric);
 """)
 
 time_table_create = ("""
