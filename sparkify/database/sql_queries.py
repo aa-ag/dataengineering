@@ -67,13 +67,13 @@ CREATE TABLE IF NOT EXISTS artists (
 
 time_table_create = ("""
 CREATE TABLE IF NOT EXISTS time (
-    start_time,
-    hour,
-    day,
-    week,
-    month,
-    year,
-    weekday
+    start_time timestamp,
+    hour SELECT EXTRACT(HOUR FROM TIMESTAMP start_time),
+    day SELECT EXTRACT(DAY FROM TIMESTAMP start_time),
+    week SELECT EXTRACT(WEEK FROM TIMESTAMP start_time),
+    month SELECT EXTRACT(MONTH FROM TIMESTAMP start_time),
+    year SELECT EXTRACT(YEAR FROM TIMESTAMP start_time),
+    weekday SELECT EXTRACT(DOW FROM TIMESTAMP start_time)
 );
 """)
 
