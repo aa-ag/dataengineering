@@ -30,12 +30,12 @@ location text, user_agent);
 
 user_table_create = ("""
 CREATE TABLE IF NOT EXISTS users
-(user_id bigint PRIMARY KEY, first_name varchar, last_name varchar, gender varchar, level int)
+(user_id bigint PRIMARY KEY, first_name varchar, last_name varchar, gender varchar, level int);
 """)
 
 song_table_create = ("""
 CREATE TABLE IF NOT EXISTS songs
-(song_id PRIMARY KEY, title text, artist_id bigint, year timestamp, duration numeric)
+(song_id bigint PRIMARY KEY, title text, artist_id bigint, year timestamp, duration numeric);
 """)
 
 artist_table_create = ("""
