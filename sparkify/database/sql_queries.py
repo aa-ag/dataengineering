@@ -29,6 +29,8 @@ location text, user_agent);
 """)
 
 user_table_create = ("""
+CREATE TABLE IF NOT EXISTS users
+(user_id bigint PRIMARY KEY, first_name varchar, last_name varchar, gender varchar, level int)
 """)
 
 song_table_create = ("""
