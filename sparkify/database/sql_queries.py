@@ -22,31 +22,59 @@ DROP TABLE IF EXISTS time;
 
 ### CREATE TABLES #####################################################
 songplay_table_create = ("""
-CREATE TABLE IF NOT EXISTS songplays
-(songplay_id bigint PRIMARY KEY, start_time timestamp, FOREIGN KEY(user_id bigint), level int, 
-FOREIGN KEY(song_id bigint), FOREIGN KEY(artist_id bigint), FOREIGN KEY(session_id bigint), 
-location text, user_agent);
+CREATE TABLE IF NOT EXISTS songplays (
+    songplay_id bigint PRIMARY KEY, 
+    start_time timestamp, 
+    FOREIGN KEY(user_id bigint), 
+    level int,
+    FOREIGN KEY(song_id bigint), 
+    FOREIGN KEY(artist_id bigint),
+    FOREIGN KEY(session_id bigint),
+    location text,
+    user_agent
+);
 """)
 
 user_table_create = ("""
-CREATE TABLE IF NOT EXISTS users
-(user_id bigint PRIMARY KEY, first_name varchar, last_name varchar, gender varchar(1), level int);
+CREATE TABLE IF NOT EXISTS users (
+    user_id bigint PRIMARY KEY,
+    first_name varchar,
+    last_name varchar,
+    gender varchar(1),
+    level int
+);
 """)
 
 song_table_create = ("""
-CREATE TABLE IF NOT EXISTS songs
-(song_id bigint PRIMARY KEY, title text, artist_id bigint, year timestamp, duration numeric);
+CREATE TABLE IF NOT EXISTS songs (
+    song_id bigint PRIMARY KEY,
+    title text,
+    artist_id bigint,
+    year timestamp,
+    duration numeric
+);
 """)
 
 artist_table_create = ("""
-CREATE TABLE IF NOT EXISTS artists
-(artist_id bigint PRIMARY KEY, name text, location text, latitude numeric, longitude numeric);
+CREATE TABLE IF NOT EXISTS artists (
+    artist_id bigint PRIMARY KEY,
+    name text,
+    location text,
+    latitude numeric,
+    longitude numeric
+);
 """)
 
 time_table_create = ("""
-CREATE TABLE IF NOT EXISTS time 
-(start_time, hour, day, week, month, year, weekday);
-TO DO: FIND OUT WHAT "ts" means in data and how to get time
+CREATE TABLE IF NOT EXISTS time (
+    start_time,
+    hour,
+    day,
+    week,
+    month,
+    year,
+    weekday
+);
 """)
 
 ### INSERT RECORDS #####################################################
