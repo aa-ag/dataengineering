@@ -30,7 +30,7 @@ location text, user_agent);
 
 user_table_create = ("""
 CREATE TABLE IF NOT EXISTS users
-(user_id bigint PRIMARY KEY, first_name varchar, last_name varchar, gender varchar, level int);
+(user_id bigint PRIMARY KEY, first_name varchar, last_name varchar, gender varchar(1), level int);
 """)
 
 song_table_create = ("""
@@ -44,6 +44,9 @@ CREATE TABLE IF NOT EXISTS artists
 """)
 
 time_table_create = ("""
+CREATE TABLE IF NOT EXISTS time 
+(start_time, hour, day, week, month, year, weekday);
+TO DO: FIND OUT WHAT "ts" means in data and how to get time
 """)
 
 ### INSERT RECORDS #####################################################
