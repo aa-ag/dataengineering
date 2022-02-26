@@ -22,6 +22,9 @@ DROP TABLE IF EXISTS time;
 
 ### CREATE TABLES #####################################################
 songplay_table_create = ("""
+CREATE TABLE IF NOT EXISTS songplays
+(songplay_id bigint, start_time timestamp, user_id bigint, level int, 
+song_id bigint, artist_id bigint, session_id bigint, location text, user_agent);
 """)
 
 user_table_create = ("""
