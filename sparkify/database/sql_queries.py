@@ -102,7 +102,7 @@ INSERT INTO users (
     last_name, 
     gender, 
     level
-) VALUES ();
+) VALUES (%s, %s, %s, %s, %s);
 """)
 
 song_table_insert = ("""
