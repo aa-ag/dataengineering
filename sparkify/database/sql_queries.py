@@ -20,7 +20,7 @@ DROP TABLE IF EXISTS time;
 """
 
 
-### CREATE TABLES #####################################################
+### CREATE TABLES ###################################################
 songplay_table_create = ("""
 CREATE TABLE IF NOT EXISTS songplays (
     songplay_id bigint PRIMARY KEY, 
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS time (
 );
 """)
 
-### INSERT RECORDS #####################################################
+### INSERT RECORDS ##################################################
 songplay_table_insert = ("""
 INSERT INTO songplays (
     songplay_id, 
@@ -139,8 +139,9 @@ INSERT INTO songs (
 """)
 
 
-### FIND SONGS ###################################################
-# find the song ID and artist ID based on the title, artist name, and duration of a song.
+### FIND SONGS ######################################################
+# find the song ID and artist ID 
+# based on the title, artist name, and duration of a song.
 song_select = ("""
 SELECT 
     song_id, artist_id
@@ -153,7 +154,7 @@ AND duration = %s
 """)
 
 
-### QUERY LISTS ###################################################
+### QUERY LISTS #####################################################
 create_table_queries = [
     songplay_table_create, user_table_create, song_table_create, 
     artist_table_create, time_table_create
