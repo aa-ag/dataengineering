@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS users (
     first_name varchar,
     last_name varchar,
     gender varchar(1),
-    level int
+    level varchar
 );
 """)
 
@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS time (
 ### inserts record into songplays table
 songplay_table_insert = ("""
 INSERT INTO songplays (
-    songplay_id, 
+    songplay_id PRIMARY KEY, 
     start_time, 
     user_id, 
     level, 
@@ -114,7 +114,7 @@ INSERT INTO songplays (
 ### inserts record into users table
 user_table_insert = ("""
 INSERT INTO users (
-    user_id, 
+    user_id PRIMARY KEY, 
     first_name, 
     last_name, 
     gender, 
@@ -125,7 +125,7 @@ INSERT INTO users (
 ### inserts record into songs table
 song_table_insert = ("""
 INSERT INTO songs (
-    song_id, 
+    song_id PRIMARY KEY, 
     title, 
     artist_id, 
     year, 
@@ -136,7 +136,7 @@ INSERT INTO songs (
 ### inserts record into artists table
 artist_table_insert = ("""
 INSERT INTO songs (
-    artist_id, 
+    artist_id PRIMARY KEY, 
     name,
     location, 
     latitude, 
