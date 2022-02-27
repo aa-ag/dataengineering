@@ -96,6 +96,13 @@ INSERT INTO songplays (
 
 
 user_table_insert = ("""
+INSERT INTO users (
+    user_id, 
+    first_name, 
+    last_name, 
+    gender, 
+    level
+) VALUES ();
 """)
 
 song_table_insert = ("""
