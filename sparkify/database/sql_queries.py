@@ -1,26 +1,32 @@
 ### DROP TABLES #####################################################
+### drops songsplays table
 songplay_table_drop = """
 DROP TABLE IF EXISTS songplays;
 """
 
+### drops users table
 user_table_drop = """
 DROP TABLE IF EXISTS users;
 """
 
+### drops songs table
 song_table_drop = """
 DROP TABLE IF EXISTS songs;
 """
 
+### drops artists table
 artist_table_drop = """
 DROP TABLE IF EXISTS artists;
 """
 
+### drops time table
 time_table_drop = """
 DROP TABLE IF EXISTS time;
 """
 
 
 ### CREATE TABLES ###################################################
+### creates songplays table
 songplay_table_create = ("""
 CREATE TABLE IF NOT EXISTS songplays (
     songplay_id bigint PRIMARY KEY, 
@@ -37,6 +43,7 @@ CREATE TABLE IF NOT EXISTS songplays (
 # \COPY songplays FROM '...'
 # this one will be created after all others,
 
+### creates users table
 user_table_create = ("""
 CREATE TABLE IF NOT EXISTS users (
     user_id bigint PRIMARY KEY,
@@ -47,6 +54,7 @@ CREATE TABLE IF NOT EXISTS users (
 );
 """)
 
+### creates songs table
 song_table_create = ("""
 CREATE TABLE IF NOT EXISTS songs (
     song_id bigint PRIMARY KEY,
@@ -57,6 +65,7 @@ CREATE TABLE IF NOT EXISTS songs (
 );
 """)
 
+### creates artists table
 artist_table_create = ("""
 CREATE TABLE IF NOT EXISTS artists (
     artist_id bigint PRIMARY KEY,
@@ -67,6 +76,7 @@ CREATE TABLE IF NOT EXISTS artists (
 );
 """)
 
+### creates time table
 time_table_create = ("""
 CREATE TABLE IF NOT EXISTS time (
     start_time timestamp,
@@ -80,6 +90,7 @@ CREATE TABLE IF NOT EXISTS time (
 """)
 
 ### INSERT RECORDS ##################################################
+### inserts record into songplays table
 songplay_table_insert = ("""
 INSERT INTO songplays (
     songplay_id, 
@@ -94,7 +105,7 @@ INSERT INTO songplays (
 ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);
 """)
 
-
+### inserts record into users table
 user_table_insert = ("""
 INSERT INTO users (
     user_id, 
@@ -105,6 +116,7 @@ INSERT INTO users (
 ) VALUES (%s, %s, %s, %s, %s);
 """)
 
+### inserts record into songs table
 song_table_insert = ("""
 INSERT INTO songs (
     song_id, 
@@ -115,6 +127,7 @@ INSERT INTO songs (
 ) VALUES (%s, %s, %s, %s, %s);
 """)
 
+### inserts record into artists table
 artist_table_insert = ("""
 INSERT INTO songs (
     artist_id, 
@@ -125,7 +138,7 @@ INSERT INTO songs (
 ) VALUES (%s, %s, %s, %s, %s);
 """)
 
-
+### inserts record into time table
 time_table_insert = ("""
 INSERT INTO songs (
     start_time,
@@ -155,11 +168,13 @@ AND duration = %s
 
 
 ### QUERY LISTS #####################################################
+### lists queries that create tables
 create_table_queries = [
     songplay_table_create, user_table_create, song_table_create, 
     artist_table_create, time_table_create
 ]
 
+### lists queries that delete tables
 drop_table_queries = [
     songplay_table_drop, user_table_drop, song_table_drop, 
     artist_table_drop, time_table_drop
