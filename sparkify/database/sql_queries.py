@@ -41,6 +41,10 @@ CREATE TABLE IF NOT EXISTS songplays (
         CONSTRAINT fk_user_id
         FOREIGN KEY (user_id)
         REFERENCES users(user_id)
+
+        CONSTRAINT fk_song_id
+        FOREIGN KEY (song_id)
+        REFERENCES songs(song_id)
 );
 """)
 # \COPY songplays FROM '...'
