@@ -30,25 +30,14 @@ DROP TABLE IF EXISTS time;
 songplay_table_create = ("""
 CREATE TABLE IF NOT EXISTS songplays (
     songplay_id bigint PRIMARY KEY, 
-    start_time timestamp, 
-    user_id bigint, 
+    start_time numeric, 
+    user_id bigint REFERENCES users(user_id), 
     level varchar,
-    song_id bigint, 
-    artist_id bigint,
+    song_id text REFERENCES songs(song_id), 
+    artist_id text REFERENCES artists(artist_id),
     session_id bigint,
     location text,
     user_agent text
-        CONSTRAINT fk_user_id
-        FOREIGN KEY (user_id)
-        REFERENCES users(user_id)
-
-        CONSTRAINT fk_song_id
-        FOREIGN KEY (song_id)
-        REFERENCES songs(song_id)
-
-        CONSTRAINT fk_artist_id
-        FOREIGN KEY (artist_id)
-        REFERENCES artists(artist_id)
 );
 """)
 # \COPY songplays FROM '...'
@@ -110,7 +99,7 @@ CREATE TABLE IF NOT EXISTS time (
 ### inserts record into songplays table
 songplay_table_insert = ("""
 INSERT INTO songplays (
-    songplay_id PRIMARY KEY, 
+    songplay_id, 
     start_time, 
     user_id, 
     level, 
