@@ -57,10 +57,10 @@ CREATE TABLE IF NOT EXISTS users (
 ### creates songs table
 song_table_create = ("""
 CREATE TABLE IF NOT EXISTS songs (
-    song_id bigint PRIMARY KEY,
+    song_id text PRIMARY KEY,
     title text,
-    artist_id bigint,
-    year timestamp,
+    artist_id text,
+    year integer,
     duration numeric
 );
 """)
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS songs (
 ### creates artists table
 artist_table_create = ("""
 CREATE TABLE IF NOT EXISTS artists (
-    artist_id bigint PRIMARY KEY,
+    artist_id text PRIMARY KEY,
     name text,
     location text,
     latitude numeric,
@@ -114,7 +114,7 @@ INSERT INTO songplays (
 ### inserts record into users table
 user_table_insert = ("""
 INSERT INTO users (
-    user_id PRIMARY KEY, 
+    user_id, 
     first_name, 
     last_name, 
     gender, 
@@ -125,7 +125,7 @@ INSERT INTO users (
 ### inserts record into songs table
 song_table_insert = ("""
 INSERT INTO songs (
-    song_id PRIMARY KEY, 
+    song_id, 
     title, 
     artist_id, 
     year, 
@@ -136,7 +136,7 @@ INSERT INTO songs (
 ### inserts record into artists table
 artist_table_insert = ("""
 INSERT INTO songs (
-    artist_id PRIMARY KEY, 
+    artist_id, 
     name,
     location, 
     latitude, 
