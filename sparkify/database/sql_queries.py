@@ -38,6 +38,9 @@ CREATE TABLE IF NOT EXISTS songplays (
     session_id bigint,
     location text,
     user_agent text
+        CONSTRAINT fk_user_id
+        FOREIGN KEY (user_id)
+        REFERENCES users(user_id)
 );
 """)
 # \COPY songplays FROM '...'
