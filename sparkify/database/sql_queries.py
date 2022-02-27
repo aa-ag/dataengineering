@@ -140,7 +140,16 @@ INSERT INTO songs (
 
 
 ### FIND SONGS ###################################################
+# find the song ID and artist ID based on the title, artist name, and duration of a song.
 song_select = ("""
+SELECT 
+    song_id, artist_id
+FROM
+    songs
+JOIN artists ON songs.artist_id = artists.artist_id
+WHERE title = %s
+AND name = %s
+AND duration = %s
 """)
 
 
