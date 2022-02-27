@@ -31,13 +31,13 @@ songplay_table_create = ("""
 CREATE TABLE IF NOT EXISTS songplays (
     songplay_id bigint PRIMARY KEY, 
     start_time timestamp, 
-    FOREIGN KEY(user_id bigint), 
+    user_id bigint, 
     level integer,
-    FOREIGN KEY(song_id bigint), 
-    FOREIGN KEY(artist_id bigint),
-    FOREIGN KEY(session_id bigint),
+    song_id bigint, 
+    artist_id bigint,
+    session_id bigint,
     location text,
-    user_agent
+    user_agent text
 );
 """)
 # \COPY songplays FROM '...'
@@ -80,14 +80,20 @@ CREATE TABLE IF NOT EXISTS artists (
 time_table_create = ("""
 CREATE TABLE IF NOT EXISTS time (
     start_time timestamp,
-    hour SELECT EXTRACT(HOUR FROM TIMESTAMP start_time),
-    day SELECT EXTRACT(DAY FROM TIMESTAMP start_time),
-    week SELECT EXTRACT(WEEK FROM TIMESTAMP start_time),
-    month SELECT EXTRACT(MONTH FROM TIMESTAMP start_time),
-    year SELECT EXTRACT(YEAR FROM TIMESTAMP start_time),
-    weekday SELECT EXTRACT(DOW FROM TIMESTAMP start_time)
+    hour timestamp,
+    day timestamp,
+    week timestamp,
+    month timestamp,
+    year timestamp,
+    weekday timestamp
 );
 """)
+# hour SELECT EXTRACT(HOUR FROM TIMESTAMP start_time),
+# day SELECT EXTRACT(DAY FROM TIMESTAMP start_time),
+# week SELECT EXTRACT(WEEK FROM TIMESTAMP start_time),
+# month SELECT EXTRACT(MONTH FROM TIMESTAMP start_time),
+# year SELECT EXTRACT(YEAR FROM TIMESTAMP start_time),
+# weekday SELECT EXTRACT(DOW FROM TIMESTAMP start_time)
 
 ### INSERT RECORDS ##################################################
 ### inserts record into songplays table
