@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS songplays (
     songplay_id bigint PRIMARY KEY, 
     start_time timestamp, 
     FOREIGN KEY(user_id bigint), 
-    level int,
+    level integer,
     FOREIGN KEY(song_id bigint), 
     FOREIGN KEY(artist_id bigint),
     FOREIGN KEY(session_id bigint),
