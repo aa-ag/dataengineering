@@ -34,6 +34,8 @@ CREATE TABLE IF NOT EXISTS songplays (
     user_agent
 );
 """)
+# \COPY songplays FROM '...'
+# this one will be created after all others,
 
 user_table_create = ("""
 CREATE TABLE IF NOT EXISTS users (
@@ -91,6 +93,7 @@ INSERT INTO songplays (
     user_agent
 ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);
 """)
+
 
 user_table_insert = ("""
 """)
