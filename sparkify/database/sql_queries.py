@@ -116,6 +116,13 @@ INSERT INTO songs (
 """)
 
 artist_table_insert = ("""
+INSERT INTO songs (
+    artist_id, 
+    name,
+    location, 
+    latitude, 
+    longitude
+) VALUES (%s, %s, %s, %s, %s);
 """)
 
 
