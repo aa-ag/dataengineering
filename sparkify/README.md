@@ -17,3 +17,4 @@ here's a step-by-step of what I did:
     - more descriptive docstrings and comments
 
 - started designing/writing sql queries to create tables
+- refactored conn & cur for connection and cursor in etl.ipynb for clarity
