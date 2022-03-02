@@ -98,8 +98,7 @@ CREATE TABLE IF NOT EXISTS time (
 ### INSERT RECORDS ##################################################
 ### inserts record into songplays table
 songplay_table_insert = ("""
-INSERT INTO songplays (
-    songplay_id, 
+INSERT INTO songplays ( 
     start_time, 
     user_id, 
     level, 
