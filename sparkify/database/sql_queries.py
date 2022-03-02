@@ -29,7 +29,7 @@ DROP TABLE IF EXISTS time;
 ### creates songplays table
 songplay_table_create = ("""
 CREATE TABLE IF NOT EXISTS songplays (
-    songplay_id bigint PRIMARY KEY, 
+    songplay_id bigint, 
     start_time numeric, 
     user_id bigint REFERENCES users(user_id), 
     level varchar,
@@ -98,7 +98,8 @@ CREATE TABLE IF NOT EXISTS time (
 ### INSERT RECORDS ##################################################
 ### inserts record into songplays table
 songplay_table_insert = ("""
-INSERT INTO songplays ( 
+INSERT INTO songplays (
+    songplay_id,
     start_time, 
     user_id, 
     level, 
